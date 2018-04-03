@@ -1,0 +1,25 @@
+{
+  "name": "console.blog",
+  "version": "0.0.0",
+  "description": "A web application that powers console.blog. Built with Next.js, Node.js, and Express",
+  "main": "index.js",
+  "dependencies": {
+    "next": "^5.1.0",
+    "react-dom": "^16.3.0",
+    "react": "^16.3.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/console-blog/console.blog.git"
+  },
+  "author": "Jay Arella",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/console-blog/console.blog/issues"
+  },
+  "homepage": "https://github.com/console-blog/console.blog#readme"
+}
