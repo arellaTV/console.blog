@@ -4,7 +4,6 @@ import PostList from '~/components/PostList';
 
 const Index = () => (
   <Fragment>
-    <h1>Post List</h1>
     <PostList />
   </Fragment>
 )

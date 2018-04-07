@@ -1,0 +1,32 @@
+query PostListQuery {
+  posts {
+    items: edges {
+      post: node {
+        globalId: id
+        slug
+        title
+        excerpt
+        categories {
+          items: edges {
+            category: node {
+              id
+              slug
+            }
+          }
+        }
+        featuredImage {
+          mediaDetails {
+            sizes {
+              name
+              file
+              width
+              height
+              mimeType
+              sourceUrl
+            }
+          }
+        }
+      }
+    }
+  }
+}

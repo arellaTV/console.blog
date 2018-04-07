@@ -1,6 +1,7 @@
 import { Fragment } from 'react';
 import { graphql } from 'react-apollo';
 import gql from 'graphql-tag';
+import postListQuery from './postListQuery.graphql';
 
 const PostList = (props) => {
   let items = [];
@@ -10,9 +11,10 @@ const PostList = (props) => {
   }
   return (
     <Fragment>
+      <h1>Recent Stories</h1>
       {items.map(item => (
         <div key={item.post.globalId}>
-          <h3><a>{item.post.title}</a></h3>
+          <h3><a href={`${item.post.categories.items[0].category.slug}/${item.post.slug}`}>{item.post.title}</a></h3>
           <div dangerouslySetInnerHTML={{ __html: item.post.excerpt }} />
         </div>
       ))}
@@ -20,29 +22,4 @@ const PostList = (props) => {
   );
 }
 
-const postListQuery = gql`
-  query PostListQuery {
-    posts {
-      items: edges {
-        post: node {
-          globalId: id
-          title
-          excerpt
-          featuredImage {
-            mediaDetails {
-              sizes {
-                name
-                file
-                width
-                height
-                mimeType
-                sourceUrl
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-`
 export default graphql(postListQuery)(PostList);
