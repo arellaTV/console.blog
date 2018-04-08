@@ -1,0 +1,19 @@
+query PostQuery ($slug: String!) {
+  post: postBy (slug: $slug) {
+    featuredImage {
+      sourceUrl
+    }
+    title
+    date
+    content
+    slug
+    categories {
+      items: edges {
+        category: node {
+          id
+          slug
+        }
+      }
+    }
+  }
+}

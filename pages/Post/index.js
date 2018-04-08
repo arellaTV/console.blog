@@ -1,10 +1,10 @@
 import withData from '~/lib/withData';
 import Post from '~/components/Post';
 
-const Post = props => {
+const PostPage = props => {
   return (
-    <h1>props.title</h1>
+    <Post {...props}/>
   )
 }
 
-export default withData(Post);
+export default withData(PostPage);

@@ -15,14 +15,13 @@ query PostListQuery {
           }
         }
         featuredImage {
+          sourceUrl
           mediaDetails {
             sizes {
               name
-              file
+              sourceUrl
               width
               height
-              mimeType
-              sourceUrl
             }
           }
         }

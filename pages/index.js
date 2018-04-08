@@ -1,6 +1,6 @@
 import { Fragment } from 'react';
-import withData from '../lib/withData';
 import PostList from '~/components/PostList';
+import withData from '~/lib/withData';
 
 const Index = () => (
   <Fragment>
