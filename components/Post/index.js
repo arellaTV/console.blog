@@ -20,7 +20,7 @@ const Post = props => {
 }
 
 export default graphql(postQuery, {
-  options: {
-    variables: { slug: "hello-world" }
-  }
+  options: (props) => ({
+    variables: { slug: props.url.query.postSlug }
+  }),
 })(Post);
