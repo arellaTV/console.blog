@@ -2,25 +2,31 @@ import { Fragment } from 'react';
 import { graphql } from 'react-apollo';
 import gql from 'graphql-tag';
 import postQuery from './query.graphql';
+import Head from 'next/head';
 
 const Post = props => {
-  let post = {};
-  let sourceUrl = '/static/asset_fallback.svg'
-  if (!props.data.loading) {
-    post = props.data.post;
-    if (post && post.featuredImage) sourceUrl = post.featuredImage.sourceUrl;
+  // Return a loading component if it's still loading
+  if (props.data.loading) {
+    return <h1>Loading!</h1>
   }
+  let post = props.data.post;
   return (
     <Fragment>
-      <img src={sourceUrl} width="320px"/>
+      <Head>
+        <title>{post.title} - Console.blog</title>
+      </Head>
       <h1>{post.title}</h1>
+      <p><img src={post.author.avatar.url} />{post.author.name}</p>
       <div dangerouslySetInnerHTML={{ __html: post.content }} />
     </Fragment>
   );
 }
 
-export default graphql(postQuery, {
-  options: (props) => ({
-    variables: { slug: props.url.query.postSlug }
-  }),
-})(Post);
+export default graphql(
+  postQuery,
+  {
+    options: (props) => ({
+      variables: { slug: props.url.query.postSlug }
+    }),
+  },
+)(Post);

@@ -1,12 +1,13 @@
 query PostQuery ($slug: String!) {
   post: postBy (slug: $slug) {
-    featuredImage {
-      sourceUrl
+    author {
+      avatar {
+        height
+        width
+        url
+      }
+      name
     }
-    title
-    date
-    content
-    slug
     categories {
       items: edges {
         category: node {
@@ -15,5 +16,12 @@ query PostQuery ($slug: String!) {
         }
       }
     }
+    content
+    date
+    featuredImage {
+      sourceUrl
+    }
+    slug
+    title
   }
 }
