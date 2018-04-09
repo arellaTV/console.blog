@@ -1,4 +1,6 @@
-module.exports = {
+const withSass = require('@zeit/next-sass');
+
+module.exports = withSass({
   webpack: (config) => {
     const newConfig = config;
     const graphQLTagLoader = {
@@ -9,4 +11,4 @@ module.exports = {
     newConfig.module.rules.push(graphQLTagLoader);
     return newConfig;
   }
-}
+})

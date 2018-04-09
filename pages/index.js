@@ -1,13 +1,12 @@
 import { Fragment } from 'react';
-import Link from 'next/link'
+import Layout from '~/components/Layout';
 import PostList from '~/components/PostList';
 import withData from '~/lib/withData';
 
 const Index = () => (
-  <Fragment>
-    <p><Link href="/"><a>Home</a></Link></p>
+  <Layout>
     <PostList />
-  </Fragment>
+  </Layout>
 )
 
 export default withData(Index);
