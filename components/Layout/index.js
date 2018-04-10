@@ -1,6 +1,6 @@
 import { Fragment } from 'react';
 import Head from 'next/head';
-import Link from 'next/link';
+import NavigationBar from '~/components/NavigationBar';
 import './styles.sass';
 
 const Layout = props => (
@@ -16,7 +16,7 @@ const Layout = props => (
       <meta name="theme-color" content="#ffffff" />
       <meta name="viewport" content="initial-scale=1.0, width=device-width" />
     </Head>
-    <p><Link href="/"><a>Home</a></Link></p>
+    <NavigationBar />
     {props.children}
   </Fragment>
 )

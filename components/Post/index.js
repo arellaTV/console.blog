@@ -1,5 +1,6 @@
 import { Fragment } from 'react';
 import { graphql } from 'react-apollo';
+import Comments from '~/components/Comments'
 import gql from 'graphql-tag';
 import Head from 'next/head';
 import moment from 'moment';
@@ -11,8 +12,11 @@ const Post = props => {
   if (props.data.loading) {
     return <h1>Loading!</h1>
   }
+
+  // Store the post data to a post variable for convenience
   let post = props.data.post;
-  console.log({ difference: moment().diff(post.date, 'days') });
+
+  // Get the relative or absolute date based off of how recent it is
   let pubDate;
   let dateDifference = moment().diff(post.date, 'days');
   if (dateDifference > 1) {
@@ -20,6 +24,7 @@ const Post = props => {
   } else {
     pubDate = moment(post.date).fromNow();
   }
+
   return (
     <Fragment>
       <Head>
@@ -38,6 +43,7 @@ const Post = props => {
         </header>
         <div className="content" dangerouslySetInnerHTML={{ __html: post.content }} />
       </article>
+      <Comments postId={post.id}/>
     </Fragment>
   );
 }

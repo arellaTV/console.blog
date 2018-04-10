@@ -4,6 +4,9 @@ import Post from '~/components/Post';
 import withData from '~/lib/withData';
 
 class PostPage extends Component {
+  static getInitialProps(req) {
+
+  }
   render() {
     return (
       <Layout>

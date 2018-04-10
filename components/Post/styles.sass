@@ -1,15 +1,30 @@
+@import 'lib/styles/global-variables.sass'
+
 .article
 
   .header
-    background-color: #56C5FF
+    background-color: $color-primary
     color: white
     padding-bottom: 35px
     padding-top: 100px
+    @media (max-width: $media-tablet)
+      padding-bottom: 60px
+      padding-left: percentage(23/768)
+      padding-right: percentage(23/768)
+      padding-top: 70px
+    @media (max-width: $media-mobile)
+      padding-left: percentage(20/375)
+      padding-right: percentage(20/375)
+      padding-top: 60px
 
     .headline, .byline
       margin: 0 auto
       max-width: 664px
       width: 100%
+      @media (max-width: $media-tablet)
+        max-width: 480px
+      @media (max-width: $media-mobile)
+        max-width: 335px
 
     .headline
       font-family: 'Oswald', sans-serif
@@ -20,10 +35,19 @@
       margin: 0 auto
       margin-bottom: 35px
       text-transform: uppercase
+      @media (max-width: $media-tablet)
+        font-size: 54.4px
+        line-height: 60.8px
+        margin-bottom: 25px
+      @media (max-width: $media-mobile)
+        font-size: 38px
+        line-height: 42px
+
 
     .byline
       align-items: center
       display: flex
+      margin: 0 auto
 
       .byline__avatar
         border-radius: 100%
@@ -43,22 +67,36 @@
   .content
     margin: 0 auto
     max-width: 1128px
+    padding-bottom: 105px
     padding-top: 40px
     width: 100%
+    @media (max-width: $media-mobile)
+      padding-bottom: 80px
 
-    > .p1, ol, blockquote
-      font-size: 18px
-      line-height: 28px
+    > .p1, p, h1, h2, h3, h4, h5, h6, pre, ol, ul, blockquote
       margin: 0 auto
       margin-bottom: 15px
       max-width: 664px
       width: 100%
+      @media (max-width: $media-tablet)
+        max-width: 480px
+        padding-left: percentage(23/768)
+        padding-right: percentage(23/768)
+      @media (max-width: $media-mobile)
+        max-width: 335px
+        padding-left: percentage(20/375)
+        padding-right: percentage(20/375)
+        width: percentage(335/375)
 
     > .p1:first-child
       font-size: 24px
       letter-spacing: -0.22px
       line-height: 32px
       margin-bottom: 30px
+
+    p
+      font-size: 18px
+      line-height: 28px
 
     figure
       margin-bottom: 60px
