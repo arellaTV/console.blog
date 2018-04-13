@@ -2,6 +2,7 @@ import {  Fragment } from 'react';
 import { graphql } from 'react-apollo';
 import gql from 'graphql-tag';
 import postListQuery from './query.graphql';
+import './styles.sass';
 
 const PostList = (props) => {
   let items = [];
