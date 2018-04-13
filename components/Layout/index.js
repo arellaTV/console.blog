@@ -1,5 +1,6 @@
 import { Fragment } from 'react';
 import Head from 'next/head';
+import Footer from '~/components/Footer';
 import NavigationBar from '~/components/NavigationBar';
 import './styles.sass';
 
@@ -18,6 +19,7 @@ const Layout = props => (
     </Head>
     <NavigationBar />
     {props.children}
+    <Footer />
   </Fragment>
 )
 

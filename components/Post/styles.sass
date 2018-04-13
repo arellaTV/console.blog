@@ -1,6 +1,9 @@
 @import 'lib/styles/global-variables.sass'
 
 .article
+  margin-top: 90px
+  @media (max-width: $media-tablet)
+    margin-top: 70px
 
   .header
     background-color: $color-primary
@@ -27,7 +30,7 @@
         max-width: 335px
 
     .headline
-      font-family: 'Oswald', sans-serif
+      font-family: $font-titling
       font-size: 68px
       font-weight: 500
       letter-spacing: 1.9px
@@ -55,7 +58,7 @@
         width: 53px
 
       .byline__description
-        font-family: 'Oswald', sans-serif
+        font-family: $font-titling
         font-size: 14px
         letter-spacing: 1.75px
         line-height: 19px
@@ -67,26 +70,52 @@
   .content
     margin: 0 auto
     max-width: 1128px
-    padding-bottom: 105px
+    padding-bottom: 90px
     padding-top: 40px
     width: 100%
+    @media (max-width: $media-tablet)
+      padding-left: percentage(23/768)
+      padding-right: percentage(23/768)
+      width: percentage(722/768)
     @media (max-width: $media-mobile)
       padding-bottom: 80px
+      padding-left: percentage(20/375)
+      padding-right: percentage(20/375)
+      width: percentage(335/375)
 
-    > .p1, p, h1, h2, h3, h4, h5, h6, pre, ol, ul, blockquote
+    > .p1, p, h1, h2, h3, h4, h5, h6, pre, ol, ul, blockquote, hr
       margin: 0 auto
       margin-bottom: 15px
       max-width: 664px
       width: 100%
       @media (max-width: $media-tablet)
         max-width: 480px
-        padding-left: percentage(23/768)
-        padding-right: percentage(23/768)
       @media (max-width: $media-mobile)
         max-width: 335px
-        padding-left: percentage(20/375)
-        padding-right: percentage(20/375)
-        width: percentage(335/375)
+
+    > hr
+      border: 0px
+      border-bottom: 1px solid $color-gray-medium
+      margin-bottom: 30px
+      padding-top: 30px
+      max-width: 728px
+      @media (max-width: $media-tablet)
+        max-width: 480px
+      @media (max-width: $media-mobile)
+        max-width: 335px
+
+    > blockquote
+        margin-bottom: 30px
+        margin-top: 30px
+        padding: 0
+
+        h3
+          letter-spacing: -0.2px
+
+        p
+          font-size: 14px
+          span:last-child
+            font-family: $font-titling
 
     > .p1:first-child
       font-size: 24px
@@ -102,6 +131,12 @@
       margin-bottom: 60px
       margin-top: 60px
       width: 100% !important
+      @media (max-width: $media-tablet)
+        margin-left: auto
+        margin-right: auto
+        max-width: 480px
+      @media (max-width: $media-mobile)
+        max-width: 335px
 
       img
         height: 100%
@@ -110,3 +145,40 @@
       figcaption
         font-size: 14px
         line-height: 26px
+
+    ol
+      box-sizing: border-box
+      counter-reset: ordered-list-counter
+      list-style: none
+      padding: 0
+      position: relative
+
+      li
+        display: flex
+        flex-direction: column
+        justify-content: center
+
+      li h3
+        align-items: center
+        display: flex
+
+      li h3:before
+        border: 1px solid $color-primary
+        border-radius: 100%
+        color: $color-primary
+        content: counter(ordered-list-counter)
+        counter-increment: ordered-list-counter
+        font-family: $font-titling
+        font-size: 14px
+        line-height: 19px
+        padding: 0.4em 0.86em
+
+      li h3 span
+        display: inline-block
+        margin-left: 20px
+
+      ul
+        padding-left: 54px
+
+    ul
+      box-sizing: border-box

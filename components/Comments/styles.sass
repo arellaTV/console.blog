@@ -2,14 +2,27 @@
 
 .comments
   background-color: $color-gray-light
+  margin-bottom: 100px
   padding-bottom: 80px
   padding-top: 80px
   width: 100%
+  @media (max-width: $media-tablet)
+    margin-bottom: 80px
   @media (max-width: $media-mobile)
     padding-bottom: 60px
     padding-top: 60px
 
   #disqus_thread
+    box-sizing: border-box
     margin: 0 auto
     max-width: 664px
     width: 100%
+    @media (max-width: $media-tablet)
+      max-width: 480px
+      padding-left: percentage(23/768)
+      padding-right: percentage(23/768)
+    @media (max-width: $media-mobile)
+      max-width: 335px
+      padding-left: percentage(20/375)
+      padding-right: percentage(20/375)
+      width: percentage(335/375)
