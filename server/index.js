@@ -1,4 +1,5 @@
 const bodyParser = require('body-parser');
+const compression = require('compression');
 const express = require('express');
 const next = require('next');
 require('dotenv').config();
@@ -12,6 +13,7 @@ const handle = app.getRequestHandler();
 
 app.prepare().then(() => {
   const server = express();
+  server.use(compression());
 
   server.get('/graphql', async (req, res) => {
     const fetchResponse = await fetch(graphQLHOST).then(response => response.json());
