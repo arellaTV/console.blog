@@ -13,12 +13,8 @@ const handle = app.getRequestHandler();
 
 app.prepare().then(() => {
   const server = express();
-  server.use(compression());
 
-  server.get('/graphql', async (req, res) => {
-    const fetchResponse = await fetch(graphQLHOST).then(response => response.json());
-    res.json(fetchResponse);
-  });
+  server.use(compression({ level: 9 }));
 
   server.post('/graphql', bodyParser.json(), async (req, res) => {
     const options = {

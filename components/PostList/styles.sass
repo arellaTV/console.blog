@@ -1,6 +1,44 @@
 @import 'lib/styles/global-variables.sass'
 
 .category
+  margin: 0 auto
   margin-top: 90px
+  max-width: 1400px
+  padding-bottom: 30px
+  padding-left: 40px
+  padding-right: 40px
+  padding-top: 60px
   @media (max-width: $media-tablet)
+    padding-left: 20px
+    padding-right: 20px
     margin-top: 70px
+  @media (max-width: $media-mobile)
+    padding-right: 20px
+
+  .header
+
+    .headline
+      font-family: $font-titling
+      margin-bottom: 60px
+      text-transform: uppercase
+      @media (max-width: $media-tablet)
+        font-size: 54.4px
+        line-height: 62.4px
+      @media (max-width: $media-mobile)
+        font-size: 40px
+
+      .headline__category
+        color: $color-primary
+
+  .posts
+    display: flex
+    flex-flow: row wrap
+    justify-content: space-between
+
+  .posts::after
+    content: ""
+    width: percentage(432/1360)
+    @media (max-width: $media-tablet)
+      width: percentage(356/728)
+    @media (max-width: $media-mobile)
+      width: 100%

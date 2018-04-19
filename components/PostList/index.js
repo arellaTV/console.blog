@@ -2,6 +2,7 @@ import {  Fragment } from 'react';
 import { graphql } from 'react-apollo';
 import gql from 'graphql-tag';
 import Head from 'next/head';
+import PostListEntry from '~/components/PostListEntry';
 import postListQuery from './query.graphql';
 import './styles.sass';
 
@@ -15,26 +16,15 @@ const PostList = (props) => {
       </Head>
       <div className="category">
         <header className="header">
-          <h1>Featured Stories</h1>
+          <h1 className="headline">
+            <span className="headline__category">Featured</span> <span>Stories</span>
+          </h1>
         </header>
-        <div className="category__list"></div>
-        {items.map(item => {
-          let sourceUrl = '/static/asset_fallback.svg';
-          if (item.post.featuredImage) {
-            sourceUrl = item.post.featuredImage.sourceUrl;
-            let mediumImage = item.post.featuredImage.mediaDetails.sizes.filter(size => size.name === 'medium')[0];
-            if (mediumImage) sourceUrl = `http://localhost:8888/wp-content/uploads/${mediumImage.sourceUrl}`
-          }
-          return (
-            <div key={item.post.globalId}>
-              <a href={`${item.post.categories.items[0].category.slug}/${item.post.slug}`}>
-                <img src={sourceUrl} width="320px"/>
-                <h2>{item.post.title}</h2>
-              </a>
-              <div dangerouslySetInnerHTML={{ __html: item.post.excerpt }} />
-            </div>
-          )
-        })}
+        <div className="posts">
+          {items.map(item => (
+            <PostListEntry item={item} key={item.post.globalId} />
+          ))}
+        </div>
       </div>
     </Fragment>
   );

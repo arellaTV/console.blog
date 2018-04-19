@@ -1,8 +1,9 @@
 query PostListQuery {
-  posts {
+  posts (where: { orderby: { field: DATE } }) {
     items: edges {
       post: node {
         globalId: id
+        date
         slug
         title
         excerpt
@@ -10,6 +11,7 @@ query PostListQuery {
           items: edges {
             category: node {
               id
+              name
               slug
             }
           }

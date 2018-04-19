@@ -1,0 +1,52 @@
+@import 'lib/styles/global-variables.sass'
+
+.card
+  border: 1px solid $color-gray-medium
+  box-sizing: border-box
+  margin-bottom: 30px
+  width: percentage(432/1360)
+  @media (max-width: $media-desktop)
+    width: percentage(356/728)
+  @media (max-width: $media-mobile)
+    width: 100%
+
+  .card__figure
+    width: 100%
+
+    img
+      width: 100%
+
+  .card__content
+    padding-bottom: 30px
+    padding-left: 30px
+    padding-right: 30px
+    padding-top: 20px
+
+    .card__category
+      color: $color-primary
+      font-family: $font-titling
+      font-size: 14px
+      letter-spacing: 1.75px
+      line-height: 19px
+      margin-bottom: 12px
+      padding-left: 1px
+
+    .card__headline
+      color: $color-gray-dark
+      display: inline-block
+      letter-spacing: -0.2px
+      line-height: 30px
+      margin-bottom: 12px
+      text-decoration: none
+
+    .card__headline:hover
+      text-decoration: underline
+
+    .card__date
+      font-size: 12px
+      margin-bottom: 12px
+      padding-left: 1px
+
+    .card__excerpt
+      font-size: 16px
+      line-height: 26px
