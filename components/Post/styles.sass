@@ -8,14 +8,17 @@
   .header
     background-color: $color-primary
     color: white
+    min-height: 135px
     padding-bottom: 35px
     padding-top: 100px
     @media (max-width: $media-tablet)
+      min-height: 130px
       padding-bottom: 60px
       padding-left: percentage(23/768)
       padding-right: percentage(23/768)
       padding-top: 70px
     @media (max-width: $media-mobile)
+      min-height: 120px
       padding-left: percentage(20/375)
       padding-right: percentage(20/375)
       padding-top: 60px
