@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import moment from 'moment';
 import './styles.sass';
 
@@ -23,16 +24,26 @@ const PostListEntry = props => {
 
   return (
     <div className="card">
-      <a href={`${item.post.categories.items[0].category.slug}/${item.post.slug}`}>
-        <figure className="card__figure">
-          <img src={sourceUrl} />
-        </figure>
-      </a>
+      <Link
+        href={`/post?postSlug=${item.post.slug}`}
+        as={`${item.post.categories.items[0].category.slug}/${item.post.slug}`}
+      >
+        <a>
+          <figure className="card__figure">
+            <img src={sourceUrl} />
+          </figure>
+        </a>
+      </Link>
       <div className="card__content">
         <div className="card__category">{category}</div>
-        <a className="card__headline" href={`${item.post.categories.items[0].category.slug}/${item.post.slug}`}>
-          <h2>{item.post.title}</h2>
-        </a>
+        <Link
+          href={`/post?postSlug=${item.post.slug}`}
+          as={`${item.post.categories.items[0].category.slug}/${item.post.slug}`}
+        >
+          <a className="card__headline">
+            <h2>{item.post.title}</h2>
+          </a>
+        </Link>
         <div className="card__date">{pubDate}</div>
         <div className="card__excerpt" dangerouslySetInnerHTML={{ __html: item.post.excerpt }} />
       </div>
