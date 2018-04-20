@@ -12,12 +12,21 @@ class Comments extends Component {
       this.page.url = window.location.href;
       this.page.identifier = postId;
     }
-    (function() {
+    if (window.DISQUS === undefined) {
       var d = document, s = d.createElement('script');
+      s.className = 'react-disqus';
       s.src = 'https://console-blog-official.disqus.com/embed.js';
       s.setAttribute('data-timestamp', +new Date());
       (d.head || d.body).appendChild(s);
-    })();
+    } else {
+      window.DISQUS.reset({
+        reload: true,
+        config: function() {
+          this.page.url = window.location.href;
+          this.page.identifier = postId;
+        }
+      });
+    }
   }
 
   render() {
