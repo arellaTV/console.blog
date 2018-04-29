@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="profile" width="96px" height="96px" viewBox="0 0 96 96" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.3 (51167) - http://www.bohemiancoding.com/sketch -->
+    <title>fallback__profile-photo</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="96" height="96"></rect>
+    </defs>
+    <g id="2.-Tablet" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="12-—-Article-A" transform="translate(-66.000000, -367.000000)">
+            <g id="fallback__profile-photo" transform="translate(66.000000, 367.000000)">
+                <g>
+                    <mask id="mask-2" fill="white">
+                        <use xlink:href="#path-1"></use>
+                    </mask>
+                    <use id="Mask" fill="#C5C5C5" xlink:href="#path-1"></use>
+                    <circle id="Oval" fill="#FFFFFF" mask="url(#mask-2)" cx="48" cy="95" r="37"></circle>
+                    <circle id="Oval" fill="#FFFFFF" mask="url(#mask-2)" cx="48" cy="39" r="22"></circle>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

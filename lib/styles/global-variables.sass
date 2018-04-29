@@ -11,3 +11,38 @@ $media-desktop: 1280px
 $media-tablet: 768px
 $media-mobile: 480px
 $media-mobile-micro: 320px
+
+@keyframes fade-in
+  from
+    opacity: 0
+  to
+    opacity: 1
+
+@keyframes skeleton--pulse--light
+  from
+    background-color: white
+  to
+    background-color: $color-gray-light
+
+@keyframes skeleton--pulse--medium
+  from
+    background-color: $color-gray-light
+  to
+    background-color: $color-gray-medium
+
+.fade-in
+  animation-duration: 0.3s
+  animation-name: fade-in
+  animation-timing-function: ease-in-out
+
+.skeleton
+  animation-direction: alternate
+  animation-duration: 0.3s
+  animation-iteration-count: infinite
+  animation-timing-function: ease-in-out
+
+.skeleton--light
+  animation-name: skeleton--pulse--light
+
+.skeleton--medium
+  animation-name: skeleton--pulse--medium

@@ -1,20 +1,27 @@
 import { Fragment } from 'react';
 import { graphql } from 'react-apollo';
 import Comments from '~/components/Comments'
+import ErrorPage from 'next/error';
 import gql from 'graphql-tag';
 import Head from 'next/head';
+import SkeletonLoader from './skeletonLoader';
 import moment from 'moment';
 import postQuery from './query.graphql';
 import './styles.sass';
 
 const Post = props => {
+  // Return an Error page if it doesn't have the required props
+  if (!props || !props.data) {
+    return <ErrorPage statusCode={404}/>
+  }
+
   // Return a loading component if it's still loading
   if (props.data.loading) {
-    return <h1>Loading!</h1>
+    return <SkeletonLoader />
   }
 
   // Store the post data to a post variable for convenience
-  let post = props.data.post;
+  const post = props.data.post;
 
   // Get the relative or absolute date based off of how recent it is
   let pubDate;
