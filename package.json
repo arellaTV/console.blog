@@ -33,7 +33,7 @@
     "build": "next build",
     "dev": "nodemon server/index.js",
     "start": "NODE_ENV=production node server/index.js",
-    "test": "NODE_ENV=test jest --no-cache"
+    "test": "NODE_ENV=test jest"
   },
   "repository": {
     "type": "git",
