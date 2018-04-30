@@ -1,5 +1,13 @@
-query PostListQuery {
-  posts (where: { orderby: { field: DATE } }) {
+query PostListQuery ($categorySlug: [String], $slug: String!) {
+  categories (where: { slug: $categorySlug }) {
+    items: edges {
+      category: node {
+        slug
+        name
+      }
+    }
+  }
+  posts (where: { categoryName: $slug, orderby: { field: DATE } }) {
     items: edges {
       post: node {
         globalId: id

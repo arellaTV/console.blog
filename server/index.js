@@ -45,6 +45,14 @@ app.prepare().then(() => {
     res.json(fetchResponse);
   });
 
+  server.get('/:categorySlug', async (req, res) => {
+    const params = {
+      categorySlug: req.params.categorySlug,
+    }
+
+    return app.render(req, res, '/category', params);
+  });
+
   server.get('/:categorySlug/:postSlug', async (req, res) => {
     const params = {
       categorySlug: req.params.categorySlug,

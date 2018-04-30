@@ -1,5 +1,6 @@
 import {  Fragment } from 'react';
 import { graphql } from 'react-apollo';
+import ErrorPage from 'next/error';
 import gql from 'graphql-tag';
 import Head from 'next/head';
 import PostListEntry from '~/components/PostListEntry';
@@ -7,8 +8,22 @@ import postListQuery from './query.graphql';
 import './styles.sass';
 
 const PostList = (props) => {
+  // Return an Error page if it doesn't have the required props
+  if (!props || !props.data || !props.data.posts) {
+    return <ErrorPage statusCode={404} />
+  }
+
+  // Return a loading component if it's still loading
+  if (props.data.loading) {
+    return <h1>Loading...</h1>
+  }
+
+  let category = 'All';
   let items = [];
-  if (!props.data.loading) items = props.data.posts.items;
+  if (props.data.categories.items.length > 0) {
+    category = props.data.categories.items[0].category.name;
+  }
+  items = props.data.posts.items;
   return (
     <Fragment>
       <Head>
@@ -17,7 +32,7 @@ const PostList = (props) => {
       <div className="category">
         <header className="header">
           <h1 className="headline">
-            <span className="headline__category">Featured</span> <span>Stories</span>
+            <span className="headline__category">{category}</span> <span>Featured Stories</span>
           </h1>
         </header>
         <div className="posts">
@@ -30,4 +45,17 @@ const PostList = (props) => {
   );
 }
 
-export default graphql(postListQuery)(PostList);
+export default graphql(
+  postListQuery,
+  {
+    options: (props) => {
+      let slug = "";
+      if (props && props.url && props.url.query) {
+        slug = props.url.query.categorySlug;
+      }
+      return ({
+        variables: { categorySlug: slug, slug }
+      })
+    },
+  },
+)(PostList);

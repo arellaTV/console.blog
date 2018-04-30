@@ -5,7 +5,7 @@ import withData from '~/lib/withData';
 
 const PostPage = props => (
   <Layout>
-    <Post {...props}/>
+    <Post {...props} />
   </Layout>
 )
 
