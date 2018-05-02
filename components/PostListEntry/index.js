@@ -35,7 +35,16 @@ const PostListEntry = props => {
         </a>
       </Link>
       <div className="card__content">
-        <div className="card__category">{category}</div>
+        <div className="card__category">
+          <Link
+            href={`/category?categorySlug=${item.post.categories.items[0].category.slug}`}
+            as={`${item.post.categories.items[0].category.slug}`}
+          >
+            <a>
+              {category}
+            </a>
+          </Link>
+        </div>
         <Link
           href={`/post?postSlug=${item.post.slug}`}
           as={`${item.post.categories.items[0].category.slug}/${item.post.slug}`}

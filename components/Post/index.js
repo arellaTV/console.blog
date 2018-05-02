@@ -4,6 +4,7 @@ import Comments from '~/components/Comments'
 import ErrorPage from 'next/error';
 import gql from 'graphql-tag';
 import Head from 'next/head';
+import Link from 'next/link';
 import SkeletonLoader from './skeletonLoader';
 import moment from 'moment';
 import postQuery from './query.graphql';
@@ -32,6 +33,8 @@ const Post = props => {
     pubDate = moment(post.date).fromNow();
   }
 
+  const category = post.categories.items[0].category.name;
+
   return (
     <Fragment>
       <Head>
@@ -39,6 +42,16 @@ const Post = props => {
       </Head>
       <article className="article">
         <header className="header">
+          <div className="header__category">
+            <Link
+              href={`/category?categorySlug=${post.categories.items[0].category.slug}`}
+              as={`/${post.categories.items[0].category.slug}`}
+            >
+              <a>
+                {category}:
+              </a>
+            </Link>
+          </div>
           <h1 className="headline">{post.title}</h1>
           <div className="byline">
             <img className="byline__avatar" src={post.author.avatar.url} />
