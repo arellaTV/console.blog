@@ -9,7 +9,7 @@ const Footer = () => (
           <img src="/static/logo_footer.svg" />
         </a>
       </Link><br />
-      <span>© 2018 Jeremiah Arella</span><br />
+      <span>© 2018 - {(new Date).getFullYear()} Jeremiah Arella</span><br />
       <span>An exploration of modern web development</span>
     </div>
     <div className="action-items">
