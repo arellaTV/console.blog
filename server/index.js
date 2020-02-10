@@ -15,7 +15,7 @@ const handle = app.getRequestHandler();
 const lruOptions = {
   length: function(n, key) { return n.length },
   max: 500,
-  maxAge: 1000 * 60 * 60,
+  maxAge: 1000 * 60,
 }
 const cache = LRU(lruOptions);
 
