@@ -18,7 +18,7 @@ const PostList = (props) => {
     return <h1>Loading...</h1>
   }
 
-  let category = 'All';
+  let category;
   let items = [];
   if (props.data.categories.items.length > 0) {
     category = props.data.categories.items[0].category.name;
@@ -32,7 +32,10 @@ const PostList = (props) => {
       <div className="category">
         <header className="header">
           <h1 className="headline">
-            <span className="headline__category">{category}</span> <span>Featured Stories</span>
+            {category &&
+              <span className="headline__category">{category}</span>
+            }
+            <span>Featured Stories</span>
           </h1>
         </header>
         <div className="posts">
