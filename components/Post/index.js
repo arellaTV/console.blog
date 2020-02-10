@@ -42,16 +42,6 @@ const Post = props => {
       </Head>
       <article className="article">
         <header className="header">
-          <div className="header__category">
-            <Link
-              href={`/category?categorySlug=${post.categories.items[0].category.slug}`}
-              as={`/${post.categories.items[0].category.slug}`}
-            >
-              <a>
-                {category}:
-              </a>
-            </Link>
-          </div>
           <h1 className="headline">{post.title}</h1>
           <div className="byline">
             <img className="byline__avatar" src={post.author.avatar.url} />
