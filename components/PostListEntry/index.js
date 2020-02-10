@@ -8,7 +8,7 @@ const PostListEntry = props => {
   if (item.post.featuredImage) {
     sourceUrl = item.post.featuredImage.sourceUrl;
     let mediumImage = item.post.featuredImage.mediaDetails.sizes.filter(size => size.name === 'medium')[0];
-    if (mediumImage) sourceUrl = `http://localhost:8000/wp-content/uploads/${mediumImage.sourceUrl}`
+    if (mediumImage) sourceUrl = mediumImage.sourceUrl;
   }
 
   // Get the relative or absolute date based off of how recent it is
